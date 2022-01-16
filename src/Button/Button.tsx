@@ -2,11 +2,17 @@ import React, { HTMLAttributes, ReactNode } from 'react'
 import type { FunctionComponent } from 'react'
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  /** The button label goes here. */
   children: ReactNode
+
+  /** The different style types of the button. */
   variant: 'solid' | 'muted' | 'outlined' | 'text'
+
+  /** The size of the button and its children. */
   size: 'small' | 'base' | 'large'
 }
 
+/** The main ui button component. */
 export const Button: FunctionComponent<ButtonProps> = ({
   children,
   variant = 'solid',
