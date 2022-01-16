@@ -9,7 +9,35 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 
 export const Button: FunctionComponent<ButtonProps> = ({
   children,
-  ...props
+  variant = 'solid',
+  size = 'base',
 }) => {
-  return <button {...props}>{children}</button>
+  // TODO: replace with tailwindcss
+  const buttonStyles = {
+    padding: '.25em .45em',
+    fontSize:
+      size === 'small' ? '0.875rem' : size === 'base' ? '1rem' : '1.125rem',
+    fontWeight: '500',
+    letterSpacing: '0.0025rem',
+    color: variant === 'solid' ? 'white' : 'mediumpurple',
+    background:
+      variant === 'solid'
+        ? 'mediumpurple'
+        : variant === 'muted'
+        ? 'lavender'
+        : variant === ('outlined' || 'text')
+        ? 'transparent'
+        : 'transparent',
+    borderRadius: '.375rem',
+    borderWidth: '.125rem',
+    borderStyle: 'solid',
+    borderColor:
+      variant === 'text'
+        ? 'transparent'
+        : variant === 'muted'
+        ? 'lavender'
+        : 'mediumpurple',
+  }
+
+  return <button style={buttonStyles}>{children}</button>
 }
