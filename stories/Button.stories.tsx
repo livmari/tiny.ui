@@ -5,11 +5,22 @@ import { Button, ButtonProps } from '../src/Button/Button'
 const meta: Meta = {
   title: 'Button',
   component: Button,
+  argTypes: {
+    onClick: { action: 'clicked' },
+    children: {
+      defaultValue: 'Click me!',
+    },
+  },
 }
 
 export default meta
 
-export const Solid: Story<ButtonProps> = (args) => <Button {...args} />
+const ButtonTemplate: Story<ButtonProps> = (args) => <Button {...args} />
+
+export const Solid = ButtonTemplate.bind({})
+export const Muted = ButtonTemplate.bind({})
+export const Outlined = ButtonTemplate.bind({})
+export const Text = ButtonTemplate.bind({})
 
 Solid.args = {
   variant: 'solid',
@@ -17,23 +28,17 @@ Solid.args = {
   size: 'base',
 }
 
-export const Muted: Story<ButtonProps> = (args) => <Button {...args} />
-
 Muted.args = {
   variant: 'muted',
   children: 'Click me!',
   size: 'base',
 }
 
-export const Outlined: Story<ButtonProps> = (args) => <Button {...args} />
-
 Outlined.args = {
   variant: 'outlined',
   children: 'Click me!',
   size: 'base',
 }
-
-export const Text: Story<ButtonProps> = (args) => <Button {...args} />
 
 Text.args = {
   variant: 'text',
