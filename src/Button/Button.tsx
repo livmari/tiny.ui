@@ -25,6 +25,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
       size === 'small' ? '0.875rem' : size === 'base' ? '1rem' : '1.125rem',
     fontWeight: '500',
     letterSpacing: '0.0025rem',
+    lineHeight: '1.25rem',
     color: variant === 'solid' ? 'white' : 'mediumpurple',
     background:
       variant === 'solid'
