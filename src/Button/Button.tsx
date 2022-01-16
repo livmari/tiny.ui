@@ -18,31 +18,13 @@ export const Button: FunctionComponent<ButtonProps> = ({
   variant = 'solid',
   size = 'base',
 }) => {
-  const primaryColor = {
-    soft: '#e0e7ff',
-    light: '#a5b4fc',
-    default: '#4f46e5',
-    dark: '#4338ca',
-    darkest: '#312e81',
-  }
-
   // TODO: replace with tailwindcss
+  /*
   const buttonStyles = {
     padding: '.4em .8em',
-    fontSize:
-      size === 'small' ? '0.875rem' : size === 'base' ? '1rem' : '1.125rem',
-    fontWeight: '600',
-    letterSpacing: '0.05em',
     lineHeight: '1.25rem',
     color: variant === 'solid' ? 'white' : primaryColor.default,
-    background:
-      variant === 'solid'
-        ? primaryColor.default
-        : variant === 'muted'
-        ? primaryColor.soft
-        : variant === ('outlined' || 'text')
-        ? 'transparent'
-        : 'transparent',
+
     borderRadius: '.5rem',
     borderWidth: '.125rem',
     borderStyle: 'solid',
@@ -53,6 +35,31 @@ export const Button: FunctionComponent<ButtonProps> = ({
         ? primaryColor.soft
         : primaryColor.default,
   }
+   */
 
-  return <button style={buttonStyles}>{children}</button>
+  return (
+    <button
+      className={`${
+        size === 'small' ? 'text-sm' : size === 'base' ? 'text-base' : 'text-lg'
+      } ${
+        // Sets background color
+        variant === 'solid'
+          ? 'bg-primary-600'
+          : variant === 'muted'
+          ? 'bg-primary-100'
+          : variant === ('outlined' || 'text')
+          ? 'bg-transparent'
+          : 'bg-transparent'
+      } ${variant === 'solid' ? 'text-white' : 'text-primary-600'} border-2 ${
+        // Sets the border color
+        variant === 'text'
+          ? 'border-transparent'
+          : variant === 'muted'
+          ? 'border-primary-100'
+          : 'border-primary-600'
+      } font-medium tracking-wide rounded-lg`}
+    >
+      {children}
+    </button>
+  )
 }
