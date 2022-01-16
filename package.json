@@ -4,7 +4,14 @@
   "version": "0.1.0",
   "license": "MIT",
   "description": "Tiny React UI component library.",
-  "keywords": ["react", "typescript", "storybook", "component", "components", "ui"],
+  "keywords": [
+    "react",
+    "typescript",
+    "storybook",
+    "component",
+    "components",
+    "ui"
+  ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -18,6 +25,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
+    "format:write": "yarn prettier --write .",
+    "format:check": "yarn prettier --check .",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -35,7 +44,7 @@
   },
   "prettier": {
     "printWidth": 80,
-    "semi": true,
+    "semi": false,
     "singleQuote": true,
     "jsxSingleQuote": true,
     "trailingComma": "es5"
