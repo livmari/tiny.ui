@@ -18,32 +18,40 @@ export const Button: FunctionComponent<ButtonProps> = ({
   variant = 'solid',
   size = 'base',
 }) => {
+  const primaryColor = {
+    soft: '#e0e7ff',
+    light: '#a5b4fc',
+    default: '#4f46e5',
+    dark: '#4338ca',
+    darkest: '#312e81',
+  }
+
   // TODO: replace with tailwindcss
   const buttonStyles = {
-    padding: '.25em .45em',
+    padding: '.4em .8em',
     fontSize:
       size === 'small' ? '0.875rem' : size === 'base' ? '1rem' : '1.125rem',
-    fontWeight: '500',
-    letterSpacing: '0.0025rem',
+    fontWeight: '600',
+    letterSpacing: '0.05em',
     lineHeight: '1.25rem',
-    color: variant === 'solid' ? 'white' : 'mediumpurple',
+    color: variant === 'solid' ? 'white' : primaryColor.default,
     background:
       variant === 'solid'
-        ? 'mediumpurple'
+        ? primaryColor.default
         : variant === 'muted'
-        ? 'lavender'
+        ? primaryColor.soft
         : variant === ('outlined' || 'text')
         ? 'transparent'
         : 'transparent',
-    borderRadius: '.375rem',
+    borderRadius: '.5rem',
     borderWidth: '.125rem',
     borderStyle: 'solid',
     borderColor:
       variant === 'text'
         ? 'transparent'
         : variant === 'muted'
-        ? 'lavender'
-        : 'mediumpurple',
+        ? primaryColor.soft
+        : primaryColor.default,
   }
 
   return <button style={buttonStyles}>{children}</button>
